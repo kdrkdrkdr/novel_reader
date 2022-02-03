@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
+
     <TextView
         android:id="@+id/novelView"
         android:layout_width="0dp"
@@ -26,9 +27,14 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="11dp"
-        android:text="TextView"
+        android:text="좌측 상단 버튼을 눌러 소설을 불러오세요.\n\n[지원하는 사이트 목록]\n소설가가되자(https://syosetu.com/)\n하멜른(https://syosetu.org/)\n카쿠요무(https://kakuyomu.jp/)\n알파폴리스(https://www.alphapolis.co.jp/)\n"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,15 +26,15 @@ class NovelReader(object):
         novel_url = url_normalize(novel_url)
 
         
-        # if 'syosetu.org' in novel_url:
-        #     self.base_url = 'https://syosetu.org'
-        #     self.novel_id = sub('[\D]', '', novel_url.replace(' ', '').split('syosetu.org/novel/')[1].split('/')[0])
-        #     self.novel_url = f'{self.base_url}/novel/?mode=r18_cs_end&nid={self.novel_id}'
-        #     self.soup = GetSoup(self.novel_url, self.base_url)
-        #     self.is_r18 = True if 'あなたは18歳以上ですか？' in str(self.soup) else False
+        if 'syosetu.org' in novel_url:
+            self.base_url = 'https://syosetu.org'
+            self.novel_id = sub('[\D]', '', novel_url.replace(' ', '').split('syosetu.org/novel/')[1].split('/')[0])
+            self.novel_url = f'{self.base_url}/novel/?mode=r18_cs_end&nid={self.novel_id}'
+            self.soup = GetSoup(self.novel_url, self.base_url)
+            self.is_r18 = True if 'あなたは18歳以上ですか？' in str(self.soup) else False
 
 
-        if 'syosetu.com' in novel_url:
+        elif 'syosetu.com' in novel_url:
             self.is_r18 = True if 'novel18' in novel_url else False
             self.base_url = 'https://novel18.syosetu.com' if self.is_r18 else 'https://ncode.syosetu.com'
             self.novel_id = novel_url.split('syosetu.com/')[1].split('/')[0]
@@ -43,42 +43,42 @@ class NovelReader(object):
 
 
 
-        # elif 'kakuyomu.jp' in novel_url:
-        #     self.base_url = 'https://kakuyomu.jp/works'
-        #     self.novel_id = novel_url.split('works/')[1].split('/episodes')[0]
-        #     self.novel_url = self.base_url + f'/{self.novel_id}'
-        #     self.soup = GetSoup(self.novel_url, self.base_url)
-        #     self.info = self.soup.find_all('li', {'class':'widget-toc-episode'})
-        #     self.episode_ids = [i.find('a')['href'].split('/episodes')[1] for i in self.info]
+        elif 'kakuyomu.jp' in novel_url:
+            self.base_url = 'https://kakuyomu.jp/works'
+            self.novel_id = novel_url.split('works/')[1].split('/episodes')[0]
+            self.novel_url = self.base_url + f'/{self.novel_id}'
+            self.soup = GetSoup(self.novel_url, self.base_url)
+            self.info = self.soup.find_all('li', {'class':'widget-toc-episode'})
+            self.episode_ids = [i.find('a')['href'].split('/episodes')[1] for i in self.info]
             
 
 
-        # elif 'alphapolis.co.jp' in novel_url:
-        #     self.base_url = 'https://www.alphapolis.co.jp'
-        #     self.novel_url = novel_url.split('/episode')[0]
-        #     self.soup = GetSoup(self.novel_url, self.base_url)
-        #     self.info = self.soup.find('div', {'class':'episodes'}).find_all('div', {'class':'episode'})
-        #     self.episode_URLs = [self.base_url+i.find('a')['href'] for i in self.info]
+        elif 'alphapolis.co.jp' in novel_url:
+            self.base_url = 'https://www.alphapolis.co.jp'
+            self.novel_url = novel_url.split('/episode')[0]
+            self.soup = GetSoup(self.novel_url, self.base_url)
+            self.info = self.soup.find('div', {'class':'episodes'}).find_all('div', {'class':'episode'})
+            self.episode_URLs = [self.base_url+i.find('a')['href'] for i in self.info]
 
 
 
-        # elif 'pixiv.net' in novel_url:
-        #     self.base_url = 'https://pixiv.net'
+        elif 'pixiv.net' in novel_url:
+            self.base_url = 'https://pixiv.net'
             
-        #     if '/series/' in novel_url:
-        #         self._soup = GetSoup(novel_url, self.base_url, is_render=True, is_xpath=True)
-        #         self._n_url = self.base_url+self._soup.xpath('//*[@id="root"]/div[2]/div[3]/div/div/main/section/div[1]/div[3]/div[1]/ul/li[1]/div[1]/a')[0].attrib['href']
-        #     else:
-        #     self._n_url = novel_url
+            if '/series/' in novel_url:
+                self._soup = GetSoup(novel_url, self.base_url, is_render=True, is_xpath=True)
+                self._n_url = self.base_url+self._soup.xpath('//*[@id="root"]/div[2]/div[3]/div/div/main/section/div[1]/div[3]/div[1]/ul/li[1]/div[1]/a')[0].attrib['href']
+            else:
+                self._n_url = novel_url
 
-        #     self.soup = GetSoup(self._n_url, self.base_url, is_render=True)
-        #     self.ol = self.soup.find_all('ol')
+            self.soup = GetSoup(self._n_url, self.base_url, is_render=True)
+            self.ol = self.soup.find_all('ol')
 
-        #     if len(self.ol) > 2:
-        #         self.info = self.ol[0].find_all('a')
-        #         self.episode_URLs = [self.base_url+i['href'] for i in self.info]
+            if len(self.ol) > 2:
+                self.info = self.ol[0].find_all('a')
+                self.episode_URLs = [self.base_url+i['href'] for i in self.info]
                 
-        #     self.novel_url = novel_url
+            self.novel_url = novel_url
 
 
 
@@ -114,19 +114,19 @@ class NovelReader(object):
 
 
     def is_short_story(self):
-        # if 'syosetu.org' in self.novel_url:
-        #     try: self.soup.find('span', {'itemprop':'name'}).text; return False
-        #     except AttributeError: return True
+        if 'syosetu.org' in self.novel_url:
+            try: self.soup.find('span', {'itemprop':'name'}).text; return False
+            except AttributeError: return True
         
-        if 'syosetu.com' in self.novel_url:
+        elif 'syosetu.com' in self.novel_url:
             try: self.soup.find('div', {'class':'index_box'}).text; return False
             except AttributeError: return True
 
-        # elif 'kakuyomu.jp' in self.novel_url:
-        #     return False# 단편의 개념이 없는 사이트
+        elif 'kakuyomu.jp' in self.novel_url:
+            return False# 단편의 개념이 없는 사이트
 
-        # elif 'alphapolis.co.jp' in self.novel_url:
-        #     return False
+        elif 'alphapolis.co.jp' in self.novel_url:
+            return False
 
         # elif 'pixiv.net' in self.novel_url:
         #     return (len(self.ol) == 2)
@@ -145,23 +145,23 @@ class NovelReader(object):
 
 
     def get_big_title(self):
-        # if 'syosetu.org' in self.novel_url:
-        #     if self.is_short_story():
-        #         bigTitle = self.soup.find('div', {'class':'ss'}).find('a').text
-        #     else:
-        #         bigTitle = self.soup.find('span', {'itemprop':'name'}).text
+        if 'syosetu.org' in self.novel_url:
+            if self.is_short_story():
+                bigTitle = self.soup.find('div', {'class':'ss'}).find('a').text
+            else:
+                bigTitle = self.soup.find('span', {'itemprop':'name'}).text
 
         
-        if 'syosetu.com' in self.novel_url:
+        elif 'syosetu.com' in self.novel_url:
             bigTitle = self.soup.find('p', {'class':'novel_title'}).text
 
 
-        # elif 'kakuyomu.jp' in self.novel_url:
-        #     bigTitle = self.soup.find('span', {'id':'catchphrase-body'}).text
+        elif 'kakuyomu.jp' in self.novel_url:
+            bigTitle = self.soup.find('span', {'id':'catchphrase-body'}).text
 
 
-        # elif 'alphapolis.co.jp' in self.novel_url:
-        #     bigTitle = self.soup.find('h2', {'class':'title'}).text.replace('\n', '')
+        elif 'alphapolis.co.jp' in self.novel_url:
+            bigTitle = self.soup.find('h2', {'class':'title'}).text.replace('\n', '')
 
 
         # elif 'pixiv.net' in self.novel_url:
@@ -178,7 +178,8 @@ class NovelReader(object):
         # elif 'estar.jp' in self.novel_url:
         #     bigTitle = self.soup.find('h1', {'class':'title'}).text
 
-
+        else:
+            return "ELSE로 처리됨"
 
         return t_j2k(bigTitle)
 
@@ -190,40 +191,40 @@ class NovelReader(object):
 
 
     def get_small_titles(self):
-        # if 'syosetu.org' in self.novel_url:
-        #     if self.is_short_story(): 
-        #         return "[단편] " + t_j2k(self.get_big_title())
-        #     else:
-        #         titleList = []
-        #         c = self.soup.find('div', {'id':'maind'}).find_all('div', {'class':'ss'})[2].find_all('tr')
-                
-        #         for i in c:
-        #             l = i.find_all('a', {'style':'text-decoration:none;'})
-        #             if len(l) !=0:
-        #                 titleList.append(l[0].text)
-
-        #         return t_j2k('\n'.join(titleList)).split('\n')
-
-
-
-        if 'syosetu.com' in self.novel_url:
+        if 'syosetu.org' in self.novel_url:
             if self.is_short_story(): 
-                return "[단편] " + t_j2k(self.get_big_title())
+                return ["[단편] " + t_j2k(self.get_big_title())]
+            else:
+                titleList = []
+                c = self.soup.find('div', {'id':'maind'}).find_all('div', {'class':'ss'})[2].find_all('tr')
+                
+                for i in c:
+                    l = i.find_all('a', {'style':'text-decoration:none;'})
+                    if len(l) !=0:
+                        titleList.append(l[0].text)
+
+                return t_j2k('\n'.join(titleList)).split('\n')
+
+
+
+        elif 'syosetu.com' in self.novel_url:
+            if self.is_short_story(): 
+                return ["[단편] " + t_j2k(self.get_big_title())]
             else:
                 titleList = [i.text.replace('\n', '') for i in self.soup.find('div', {'class':'index_box'}).find_all('dd', {'class':'subtitle'})]
                 return t_j2k('\n'.join(titleList)).split('\n')
 
 
 
-        # elif 'kakuyomu.jp' in self.novel_url:
-        #     titleList = [i.find('span', {'class':'widget-toc-episode-titleLabel js-vertical-composition-item'}).text for i in self.info]
-        #     return t_j2k('\n'.join(titleList)).split('\n')
+        elif 'kakuyomu.jp' in self.novel_url:
+            titleList = [i.find('span', {'class':'widget-toc-episode-titleLabel js-vertical-composition-item'}).text for i in self.info]
+            return t_j2k('\n'.join(titleList)).split('\n')
 
 
 
-        # elif 'alphapolis.co.jp' in self.novel_url:
-        #     titleList = [i.find('span', {'class':'title'}).text for i in self.info]
-        #     return t_j2k('\n'.join(titleList)).split('\n') 
+        elif 'alphapolis.co.jp' in self.novel_url:
+            titleList = [i.find('span', {'class':'title'}).text for i in self.info]
+            return t_j2k('\n'.join(titleList)).split('\n') 
 
 
 
@@ -253,13 +254,13 @@ class NovelReader(object):
 
 
     def get_content(self, novel_round):
-        # if 'syosetu.org' in self.novel_url:
-        #     if self.is_short_story():
-        #         epiURL = self.novel_url
-        #     else:
-        #         epiURL = f'{self.novel_url}&volume={novel_round+1}'
+        if 'syosetu.org' in self.novel_url:
+            if self.is_short_story():
+                epiURL = self.novel_url
+            else:
+                epiURL = f'{self.novel_url}&volume={novel_round+1}'
 
-        #     return '\n'.join([n.text for n in GetSoup(epiURL, self.base_url).find('div', {'id':'honbun'}).find_all('p')])
+            return '\n'.join([n.text for n in GetSoup(epiURL, self.base_url).find('div', {'id':'honbun'}).find_all('p')])
 
 
 
@@ -273,15 +274,15 @@ class NovelReader(object):
 
 
 
-        # elif 'kakuyomu.jp' in self.novel_url:
-        #     epiURL = url_normalize(f'{self.novel_url}/episodes/{self.episode_ids[novel_round]}')
-        #     return '\n'.join([n.text for n in GetSoup(epiURL, self.base_url).find('div', {'class':'widget-episodeBody js-episode-body'}).find_all('p')])
+        elif 'kakuyomu.jp' in self.novel_url:
+            epiURL = url_normalize(f'{self.novel_url}/episodes/{self.episode_ids[novel_round]}')
+            return '\n'.join([n.text for n in GetSoup(epiURL, self.base_url).find('div', {'class':'widget-episodeBody js-episode-body'}).find_all('p')])
 
 
 
-        # elif 'alphapolis.co.jp' in self.novel_url:
-        #     epiURL = self.episode_URLs[novel_round]
-        #     return GetSoup(epiURL, self.base_url).find('div', {'id':'novelBoby'}).text.replace('\t', '')
+        elif 'alphapolis.co.jp' in self.novel_url:
+            epiURL = self.episode_URLs[novel_round]
+            return GetSoup(epiURL, self.base_url).find('div', {'id':'novelBoby'}).text.replace('\t', '')
 
 
         

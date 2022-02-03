@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/side_nav_bar"
+    android:background="@color/defaultColor"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -16,19 +16,33 @@
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        app:boxBackgroundColor="@color/defaultColor"
+        app:endIconMode="clear_text"
         app:expandedHintEnabled="false"
         app:hintAnimationEnabled="false"
-        app:hintEnabled="false">
+        app:hintEnabled="false"
+        app:placeholderTextColor="@color/white"
+        app:prefixTextColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="hint" />
+            android:background="@color/defaultColor"
+            android:hint="여기에 소설 주소를 입력해주세요."
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/purple_200"
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:backgroundTint="@color/purple_200"
+        android:text="소설 불러오기"
+        android:textColor="@color/black" />
+
 </LinearLayout>

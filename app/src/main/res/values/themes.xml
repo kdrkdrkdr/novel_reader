@@ -22,4 +22,11 @@
     <style name="Theme.Novel_reader.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Novel_reader.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="dialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
 </resources>
