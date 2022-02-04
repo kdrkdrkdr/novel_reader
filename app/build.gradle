@@ -5,13 +5,14 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.novel_reader"
+        applicationId "com.kdr.novel_reader"
 
         python{
             pip{
                 install "requests"
                 install "bs4"
                 install "url-normalize"
+                install "pixivpy"
             }
         }
 

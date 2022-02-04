@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Novel_reader">
         <activity
-            android:name=".MainActivity"
+            android:name="com.kdr.novel_reader.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Novel_reader.NoActionBar">

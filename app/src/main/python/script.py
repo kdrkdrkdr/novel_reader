@@ -2,7 +2,6 @@ from _requirement_func import *
 from novel_reader import *
 
 
-
 def get_novel_title(novel_url):
     try:
         nr = NovelReader(novel_url)

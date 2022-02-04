@@ -10,31 +10,75 @@
     <fragment
         android:id="@+id/nav_host_fragment_content_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
 
     <TextView
         android:id="@+id/novelView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="11dp"
-        android:text="좌측 상단 버튼을 눌러 소설을 불러오세요.\n\n[지원하는 사이트 목록]\n소설가가되자(https://syosetu.com/)\n하멜른(https://syosetu.org/)\n카쿠요무(https://kakuyomu.jp/)\n알파폴리스(https://www.alphapolis.co.jp/)\n"
-        android:textSize="16sp"
-        android:textColor="@color/white"
+        android:layout_width="365dp"
+        android:layout_height="647dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="6dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="좌측 상단 버튼을 눌러 소설을 불러올 수 있습니다..\n\n[지원하는 사이트 목록]\n소설가가되자(https://syosetu.com/)\n하멜른(https://syosetu.org/)\n카쿠요무(https://kakuyomu.jp/)\n알파폴리스(https://www.alphapolis.co.jp/)\n픽시브(https://www.pixiv.net/)\n노벨리스트(https://novelist.jp/)\n이스타(https://estar.jp/)"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="376dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/novelView">
+
+        <Button
+            android:id="@+id/novelPrevBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/defaultColor"
+            android:text="&lt;&lt; 이전"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/novelIdxBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/defaultColor"
+            android:text="목차"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/novelNxtBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/defaultColor"
+            android:text="다음 &gt;&gt;"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

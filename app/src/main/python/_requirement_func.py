@@ -11,7 +11,7 @@ import asyncio
 from re import sub
 from papagopy.papagopy import Papagopy
 from url_normalize import url_normalize
-
+from pixivpy3 import *
 
 
 
@@ -83,46 +83,28 @@ def PrettifyHtml(html:str):
 
 
 
+def refresh_pixiv_token():
+    response = requests.post(
+        "https://oauth.secure.pixiv.net/auth/token",
+        data={
+            "client_id": "MOBrBDS8blbauoSck0ZfDbtuzpyT",
+            "client_secret": "lsACyCD94FhDUtGTXi3QzcFE2uU1hqtDaKeqrdwj",
+            "grant_type": "refresh_token",
+            "include_policy": "true",
+            "refresh_token": "dm47_E5U48t53ShUwvZc26ZLh76SJ6bfdE4hhhcRCgA",
+        },
+        headers={"User-Agent": "PixivAndroidApp/5.0.234 (Android 11; Pixel 5)"},
+    )
+    data = response.json()
 
-
-
-def distance(x1, y1, x2, y2):
-    result = sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2))
-    return result
-
-
-def vector_inner_cos_to_degree(x1, y1, x2, y2):
     try:
-        cos = (x1*x2 + y1*y2) / ( sqrt(x1**2 + y1**2) * sqrt(x2**2 + y2**2) )
-        rad = acos(cos)
-        return degrees(rad)
+        access_token = data["access_token"]
+        refresh_token = data["refresh_token"]
 
-    except ZeroDivisionError:
-        return 0.0
+        return access_token
 
-
-def ImageDownload(filename, url):
-    header = {
-        'User-agent' : 'Mozilla/5.0',
-        'Referer' : url
-    }
-    while True:
-        try:
-            with open(filename, 'wb') as f:
-                resp = requests.get(url, headers=header)
-                if resp.status_code == 404:
-                    break
-                f.write(resp.content)
-                break
-        except ( exceptions.ChunkedEncodingError, exceptions.Timeout, exceptions.ConnectionError ):
-            continue
-
-
-
-
-def clickAction(driver, element):
-    action = ActionChains(driver)
-    action.click(on_element=element)
-    action.perform()
-
+    except KeyError:
+        print("error:")
+        exit(1)
+    
 
