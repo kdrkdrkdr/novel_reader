@@ -19,6 +19,7 @@
         android:textColorHint="@color/white"
         app:boxBackgroundColor="@color/defaultColor"
         app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
         app:expandedHintEnabled="false"
         app:hintAnimationEnabled="false"
         app:hintEnabled="false"
@@ -29,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/defaultColor"
-            android:hint="여기에 소설 주소를 입력해주세요."
+            android:hint="@string/text_textInputLayout"
             android:inputType="text"
             android:maxLines="1"
             android:textColor="@color/white"
@@ -42,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/purple_200"
-        android:text="소설 불러오기"
+        android:text="@string/text_button"
         android:textColor="@color/black" />
 
 </LinearLayout>

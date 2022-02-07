@@ -7,10 +7,13 @@
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/drawable/icon_color.xml" value="0.3796875" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/activity_main.xml" value="0.36354166666666665" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/app_bar_main.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/content_main.xml" value="0.33" />
+        <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/dictionary_management.xml" value="0.19035087719298247" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/nav_header_main.xml" value="0.27601809954751133" />
+        <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/layout/property_settings.xml" value="0.306140350877193" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/menu/activity_main_drawer.xml" value="0.25625" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/menu/main.xml" value="0.35794871794871796" />
+        <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/menu/popup_menu.xml" value="0.306140350877193" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3796875" />
         <entry key="..\:/Users/power/Desktop/Project/novel_reader/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3796875" />
       </map>

@@ -266,23 +266,26 @@ class Papagopy:
 		result = [self.request(source=chunk, options=options) for chunk in preprocessedSources]
 		result = [json.loads(response.text) for response in result]
 
+
+
+		# 여기를 검사할 필요가 있다.
 		if returnRaw:
 			result = [
-        res['message']['result'] if 'message' in res else res 
-        for res in result
-      ]
+				res['message']['result'] if 'message' in res else res 
+				for res in result
+			]
 		else:
 			result = [
-        res['message']['result']['translatedText'] if 'message' in res else res['translatedText'] 
-        for res in result
-      ]
+				res['message']['result']['translatedText'] if 'message' in res else res['translatedText'] 
+				for res in result
+      		]
 		
 		if self.debug:
 			for res in result:
 				print(f"[Pypago.translate] result length {str(len(res))} : {UTIL.makePrintableString(res)}")
 		
 		if not returnRaw:
-			result = ' '.join(result)
+			result = '\n'.join(result)
 		return result
 
 

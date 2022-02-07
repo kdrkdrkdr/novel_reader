@@ -108,3 +108,6 @@ def refresh_pixiv_token():
         exit(1)
     
 
+def get_pixiv_token():
+    soup = GetSoup('https://github.com/kdrkdrkdr/public_key/blob/main/key.txt', 'https:/github.com')
+    return soup.find('td', {'id': 'LC1'}).text

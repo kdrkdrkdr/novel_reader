@@ -1,21 +1,18 @@
 package com.kdr.novel_reader;
 
-import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Layout;
 import android.text.SpannableString;
 import android.text.method.ScrollingMovementMethod;
 import android.text.style.ForegroundColorSpan;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -48,12 +45,11 @@ public class MainActivity extends AppCompatActivity {
     String current_novel_url;
     MenuItem current_item = null;
 
+    PyObject currentNovelClass = null;
+
     PyObject novelBigTitle;
     List<PyObject> novelContents = null;
     PyObject novelContent;
-
-
-
 
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -95,14 +91,13 @@ public class MainActivity extends AppCompatActivity {
             Python.start(new AndroidPlatform(this));
         }
         Python py = Python.getInstance();
-        final PyObject script = py.getModule("script");
+        final PyObject novel_reader = py.getModule("novel_reader");
 
         final Menu menu = navigationView.getMenu();
         menu.clear();
 
         Button novelPrevBtn = (Button) findViewById(R.id.novelPrevBtn);
         Button novelNxtBtn = (Button) findViewById(R.id.novelNxtBtn);
-        Button novelIdxBtn = (Button) findViewById(R.id.novelIdxBtn);
 
 
         final Handler btnClickHandler = new Handler() {
@@ -129,13 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        novelIdxBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawer.open();
-            }
-        });
-
         novelPrevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                         new Thread() {
                             @Override
                             public void run() {
-                                novelContent = script.callAttr("get_content", current_novel_url.toString(), currId-1);
+                                novelContent = currentNovelClass.callAttr("get_content", currId-1);
 
                                 Message msg = navMenuClickHandler.obtainMessage();
                                 navMenuClickHandler.sendMessage(msg);
@@ -176,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (current_item != null && novelContents != null) {
                     int currId = current_item.getItemId();
-                    if (currId != novelContents.size()) {
+                    if (currId != novelContents.size()-1) {
 
                         showDialog(1);
 
@@ -196,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                         new Thread() {
                             @Override
                             public void run() {
-                                novelContent = script.callAttr("get_content", current_novel_url.toString(), currId+1);
+                                novelContent = currentNovelClass.callAttr("get_content",currId+1);
 
                                 Message msg = navMenuClickHandler.obtainMessage();
                                 navMenuClickHandler.sendMessage(msg);
@@ -222,8 +210,10 @@ public class MainActivity extends AppCompatActivity {
                         String novelURL = textInputLayout.getEditText().getText().toString();
                         current_novel_url = novelURL;
 
-                        novelBigTitle = script.callAttr("get_novel_big_title", novelURL);
-                        novelContents = script.callAttr("get_novel_title", novelURL).asList();
+                        currentNovelClass = novel_reader.callAttr("NovelReader", novelURL);
+
+                        novelBigTitle = currentNovelClass.callAttr("get_big_title");
+                        novelContents = currentNovelClass.callAttr("get_small_titles").asList();
 
                         Message msg = btnClickHandler.obtainMessage();
                         btnClickHandler.sendMessage(msg);
@@ -233,6 +223,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -255,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                 new Thread() {
                     @Override
                     public void run() {
-                        novelContent = script.callAttr("get_content", current_novel_url.toString(), itemId);
+                        novelContent = currentNovelClass.callAttr("get_content", itemId);
 
                         Message msg = navMenuClickHandler.obtainMessage();
                         navMenuClickHandler.sendMessage(msg);
@@ -266,6 +260,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
 
     @Override
@@ -284,6 +281,27 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.settings:
+                Intent set_Intent = new Intent(MainActivity.this, Property_Settings.class);
+                startActivity(set_Intent);
+                break;
+
+            case R.id.dev_help:
+                Uri uri = Uri.parse("https://github.com/kdrkdrkdr/novel_reader");
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
