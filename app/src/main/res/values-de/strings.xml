@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Web Novel Übersetzung</string>
+    <string name="menu_home">Home</string>
+
+    <string name="text_settings">Einstellungen</string>
+    <string name="text_dev_help">Untersuchung</string>
+
+    <string name="text_textInputLayout">Bitte geben Sie hier die Noveladresse ein.</string>
+    <string name="text_button">Romane laden</string>
+
+    <string name="text_novelPrevBtn">&lt;&lt; Vorab</string>
+    <string name="text_novelNxtBtn">Nächste Seite &gt;&gt;</string>
+
+    <string name="text_loadingBox">Laden Sie einen Roman.. Bitte warten Sie ein.</string>
+    <string name="text_novelView">Sie können einen Roman laden, indem Sie die obere linke Taste drücken..\n\n[Support website]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+</resources>

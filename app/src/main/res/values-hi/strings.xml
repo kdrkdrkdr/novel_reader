@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">वेब उपन्यास अनुवाद</string>
+    <string name="menu_home">घर</string>
+    <string name="text_settings">स्थापना</string>
+    <string name="text_dev_help">संपर्क करें</string>
+    <string name="text_textInputLayout">कृपया अपना उपन्यास पता यहां दर्ज करें।</string>
+    <string name="text_button">लोड उपन्यास</string>
+    <string name="text_novelView">आप ऊपरी बाएँ बटन पर क्लिक करके उपन्यास लोड कर सकते हैं..\n\n[समर्थित साइटों की सूची]\nएक उपन्यासकार बनें (https://syosetu.com/)\nहैमेलन (https://syosetu.org/)\nकाकुयोमु (https://kakuyomu.jp/)\nअल्फापोलिस (https://www.alphapolis.co.jp/)\nपिक्सीव (https://www.pixiv.net/)\nनोबेलिस्ट (https://novelist.jp/)\nईस्टर (https://estar.jp/)</string>
+    <string name="text_novelPrevBtn">&lt;&lt; पिछला संस्करण</string>
+    <string name="text_novelNxtBtn">अगले प्रकरण &gt;&gt;</string>
+    <string name="text_loadingBox">उपन्यास लोड हो रहा है.. कृपया प्रतीक्षा करें.</string>
+</resources>

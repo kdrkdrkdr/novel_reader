@@ -10,6 +10,7 @@ import json
 import asyncio
 from re import sub
 from papagopy.papagopy import Papagopy
+from papagopy import constants
 from url_normalize import url_normalize
 from pixivpy3 import *
 
@@ -20,8 +21,19 @@ findJpn = re.compile('[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e0
 p = Papagopy()
 
 
-def t_j2k(japanese):
-    return p.translate(japanese, 'ko', 'ja')
+
+def translate_content(content: str, lang_code: str):
+    if lang_code == 'ja':
+        return content
+
+    elif 'zh' in lang_code:
+        return p.translate(content, 'zh-CN')
+
+    elif not lang_code in constants.codes['all']:
+        return p.translate(content, 'en')
+
+    else:
+        return p.translate(content, lang_code)
 
 
 
@@ -34,7 +46,7 @@ def async_loop(func, *args):
 
 
 
-def GetSoup(url, referer, is_render=False, is_xpath=False):
+def GetSoup(url, referer):
     headers = {
         'referer': referer,
         "User-Agent": "Mozilla/5.0",
@@ -49,6 +61,7 @@ def GetSoup(url, referer, is_render=False, is_xpath=False):
 
         except:
             sleep(2)
+
 
 
 

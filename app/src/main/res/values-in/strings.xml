@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Terjemahan Web Novel</string>
+    <string name="menu_home">Rumah</string>
+
+    <string name="text_settings">Pengaturan</string>
+    <string name="text_dev_help">Penyelidikan</string>
+
+    <string name="text_textInputLayout">Silakan masukkan alamat novel di sini.</string>
+    <string name="text_button">Memuat novel</string>
+
+    <string name="text_novelPrevBtn">&lt;&lt; Sebelumnya</string>
+    <string name="text_novelNxtBtn">Berikutnya &gt;&gt;</string>
+
+    <string name="text_loadingBox">Memuat sebuah novel .. Mohon tunggu sebentar.</string>
+    <string name="text_novelView">Anda dapat memuat novel dengan menekan tombol kiri atas..\n\n[Situs web dukungan]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+</resources>

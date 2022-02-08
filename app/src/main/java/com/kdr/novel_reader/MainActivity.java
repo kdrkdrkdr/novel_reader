@@ -37,6 +37,7 @@ import com.example.novel_reader.databinding.ActivityMainBinding;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     PyObject novelBigTitle;
     List<PyObject> novelContents = null;
     PyObject novelContent;
+
+
 
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -210,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                         String novelURL = textInputLayout.getEditText().getText().toString();
                         current_novel_url = novelURL;
 
-                        currentNovelClass = novel_reader.callAttr("NovelReader", novelURL);
+                        currentNovelClass = novel_reader.callAttr("NovelReader", novelURL, Locale.getDefault().getLanguage().toString());
 
                         novelBigTitle = currentNovelClass.callAttr("get_big_title");
                         novelContents = currentNovelClass.callAttr("get_small_titles").asList();
@@ -269,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
     protected Dialog onCreateDialog(int id) {
         ProgressDialog dialog = new ProgressDialog(this, R.style.dialogStyle);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setMessage("소설을 불러오는 중.. 잠시만 기다려주세요.");
+        dialog.setMessage(getResources().getString(R.string.text_loadingBox));
 
         return dialog;
     }

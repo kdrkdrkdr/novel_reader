@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">웹 소설 번역</string>
+    <string name="menu_home">Home</string>
+    <string name="text_settings">설정</string>
+    <string name="text_dev_help">문의하기</string>
+    <string name="text_textInputLayout">여기에 소설 주소를 입력해주세요.</string>
+    <string name="text_button">소설 불러오기</string>
+    <string name="text_novelView">좌측 상단 버튼을 눌러 소설을 불러올 수 있습니다..\n\n[지원하는 사이트 목록]\n소설가가되자 (https://syosetu.com/)\n하멜른 (https://syosetu.org/)\n카쿠요무 (https://kakuyomu.jp/)\n알파폴리스 (https://www.alphapolis.co.jp/)\n픽시브 (https://www.pixiv.net/)\n노벨리스트 (https://novelist.jp/)\n이스타 (https://estar.jp/)</string>
+    <string name="text_novelPrevBtn">&lt;&lt; 이전 화</string>
+    <string name="text_novelNxtBtn">다음 화 &gt;&gt;</string>
+    <string name="text_loadingBox">소설을 불러오는 중.. 잠시만 기다려주세요.</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bản dịch trên mạng</string>
+    <string name="menu_home">Nhà</string>
+
+    <string name="text_settings">Sự xác lại khái</string>
+    <string name="text_dev_help">Cuộc điều tra</string>
+
+    <string name="text_textInputLayout">Vui lòng nhập địa chỉ mới vào đây.</string>
+    <string name="text_button">Nạp tiểu thuyết</string>
+
+    <string name="text_novelPrevBtn">&lt;&lt; Trước đây</string>
+    <string name="text_novelNxtBtn">Tiếp theo &gt;&gt;</string>
+
+    <string name="text_loadingBox">Đang tải một cuốn tiểu thuyết.. Các bạn chờ chút nhé.</string>
+    <string name="text_novelView">Bạn có thể tải một cuốn tiểu thuyết bằng cách ấn nút trên trái..\n\n[Trang web hỗ trợ]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traducción de novelas web</string>
+    <string name="menu_home">En casa</string>
+
+    <string name="text_settings">Settings</string>
+    <string name="text_dev_help">Investigación</string>
+
+    <string name="text_textInputLayout">Por favor, entre la dirección de la novela aquí.</string>
+    <string name="text_button">Cargando novelas</string>
+
+    <string name="text_novelPrevBtn">&lt;&lt; Previamente</string>
+    <string name="text_novelNxtBtn">Siguiente &gt;&gt;</string>
+
+    <string name="text_loadingBox">Cargando una novela.. Por favor, espere un segundo.</string>
+    <string name="text_novelView">Puedes cargar una novela presionando el botón superior izquierdo..\n\n[Support website]\nDevenir novelista (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelista (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+</resources>

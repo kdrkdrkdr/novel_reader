@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Перевод новшеств в Интернете</string>
+    <string name="menu_home">Главная</string>
+
+    <string name="text_settings">Настройки</string>
+    <string name="text_dev_help">Следствие</string>
+
+    <string name="text_textInputLayout">Пожалуйста, введите адрес романа здесь.</string>
+    <string name="text_button">Романы, загружаемые</string>
+
+    <string name="text_novelPrevBtn">&lt;&lt; Предыдущая страница</string>
+    <string name="text_novelNxtBtn">Следующая страница &gt;&gt;</string>
+
+    <string name="text_loadingBox">Загрузка романа.. Пожалуйста, подождите секунду.</string>
+    <string name="text_novelView">Вы можете загрузить роман, нажав левую верхнюю кнопку..\n\n[Поддержка сайта]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+</resources>

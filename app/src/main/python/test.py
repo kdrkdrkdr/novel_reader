@@ -5,6 +5,8 @@ from pprint import pprint
 
 
 
+
+
 # def refresh_pixiv_token():
 #     response = requests.post(
 #         "https://oauth.secure.pixiv.net/auth/token",
@@ -49,5 +51,3 @@ from pprint import pprint
 
 # print(b, len(b.split('\n')))
 
-a = t_j2k(japanese='린코は馬鹿だった。')
-print(a)

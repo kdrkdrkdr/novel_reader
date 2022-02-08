@@ -25,8 +25,11 @@ tinami.com              |   X
 
 
 class NovelReader(object):
-    def __init__(self, novel_url = ""):
+    def __init__(self, novel_url = "", target_lang_code = "ko"):
         self.novel_url = url_normalize(novel_url)
+        self.target_lang_code = target_lang_code
+        
+
         
         try:
         
@@ -131,7 +134,7 @@ class NovelReader(object):
         
         
         except :
-            return "잘못된 요청입니다."
+            return translate_content("잘못된 요청입니다.", self.target_lang_code)
 
 
 
@@ -214,13 +217,13 @@ class NovelReader(object):
 
             
             else:
-                return "잘못된 주소입니다."
+                return translate_content("잘못된 주소입니다.", self.target_lang_code)
 
         
-            return t_j2k(bigTitle)
+            return translate_content(bigTitle, self.target_lang_code)
 
         except Exception as e:
-            return "잘못된 요청입니다."
+            return translate_content("잘못된 요청입니다.", self.target_lang_code)
 
 
 
@@ -232,7 +235,7 @@ class NovelReader(object):
         try:
             if 'syosetu.org' in self.novel_url:
                 if self.is_short_story(): 
-                    return ["[단편] " + t_j2k(self.get_big_title())]
+                    return ["[단편] " + translate_content(self.get_big_title(), self.target_lang_code)]
                 else:
                     titleList = []
                     c = self.soup.find('div', {'id':'maind'}).find_all('div', {'class':'ss'})[2].find_all('tr')
@@ -242,34 +245,34 @@ class NovelReader(object):
                         if len(l) !=0:
                             titleList.append(l[0].text)
 
-                    return t_j2k('\n'.join(titleList)).split('\n')
+                    return translate_content('\n'.join(titleList), self.target_lang_code).split('\n')
 
 
 
             elif 'syosetu.com' in self.novel_url:
                 if self.is_short_story(): 
-                    return ["[단편] " + t_j2k(self.get_big_title())]
+                    return ["[단편] " + translate_content(self.get_big_title(), self.target_lang_code)]
                 else:
                     titleList = [i.text.replace('\n', '') for i in self.soup.find('div', {'class':'index_box'}).find_all('dd', {'class':'subtitle'})]
-                    return t_j2k('\n'.join(titleList)).split('\n')
+                    return translate_content('\n'.join(titleList), self.target_lang_code).split('\n')
 
 
 
             elif 'kakuyomu.jp' in self.novel_url:
                 titleList = [i.find('span', {'class':'widget-toc-episode-titleLabel js-vertical-composition-item'}).text for i in self.info]
-                return t_j2k('\n'.join(titleList)).split('\n')
+                return translate_content('\n'.join(titleList), self.target_lang_code).split('\n')
 
 
 
             elif 'alphapolis.co.jp' in self.novel_url:
                 titleList = [i.find('span', {'class':'title'}).text for i in self.info]
-                return t_j2k('\n'.join(titleList)).split('\n') 
+                return translate_content('\n'.join(titleList), self.target_lang_code).split('\n') 
 
 
 
             elif 'pixiv.net' in self.novel_url:
                 if self.is_short_story():
-                    return ["단편 " + t_j2k(self.get_big_title())]
+                    return ["단편 " + translate_content(self.get_big_title(), self.target_lang_code)]
                 else:
                     titleList = []
                     self.pixiv_api.set_auth(get_pixiv_token())
@@ -279,22 +282,22 @@ class NovelReader(object):
                         titleList.extend([novel.title for novel in json_result['novels']])
                         qs = self.pixiv_api.parse_qs(json_result['next_url'])
 
-                    return t_j2k('\n'.join(titleList)).split('\n')
+                    return translate_content('\n'.join(titleList), self.target_lang_code).split('\n')
 
 
 
             elif 'novelist.jp' in self.novel_url:
                 titleList = [f'{i+1} 페이지' for i in range(self.epiCount)]
-                return t_j2k('\n'.join(titleList)).split('\n') 
+                return translate_content('\n'.join(titleList), self.target_lang_code).split('\n') 
 
             
 
             elif 'estar.jp' in self.novel_url:
-                return t_j2k('\n'.join(self.titleList)).split('\n') 
+                return translate_content('\n'.join(self.titleList), self.target_lang_code).split('\n') 
 
 
             else:
-                return ['잘못된 주소입니다.']
+                return [translate_content("잘못된 주소입니다.", self.target_lang_code)]
 
         except Exception as e:
             return [str(e)]
@@ -365,11 +368,11 @@ class NovelReader(object):
             
 
             else:
-                return "잘못된 주소입니다."
+                return translate_content("잘못된 주소입니다.", self.target_lang_code)
 
 
         
-            return t_j2k(content)
+            return translate_content(content, self.target_lang_code)
 
         except Exception as e:
             return str(e)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">网络小说翻译</string>
+    <string name="menu_home">家</string>
+    <string name="text_settings">设置</string>
+    <string name="text_dev_help">咨询</string>
+    <string name="text_textInputLayout">请在这里输入小说地址。</string>
+    <string name="text_button">装入小说</string>
+    <string name="text_novelView">点击左上角按钮即可装入小说..\n\n[支持的网站列表]\n成为小说家后 (https://syosetu.com/)\n哈梅尔恩 (https://syosetu.org/)\n卡库约木 (https://kakuyomu.jp/)\n阿尔法波利斯 (https://www.alphapolis.co.jp/)\n接发球 (https://www.pixiv.net/)\n诺维利斯特 (https://novelist.jp/)\n易斯达 (https://estar.jp/)</string>
+    <string name="text_novelPrevBtn">&lt;&lt; 前一段插曲</string>
+    <string name="text_novelNxtBtn">下一个小插曲 &gt;&gt;</string>
+    <string name="text_loadingBox">正在叫小说.. 请稍等。</string>
+</resources>

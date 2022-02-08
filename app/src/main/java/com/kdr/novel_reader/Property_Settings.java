@@ -23,7 +23,6 @@ public class Property_Settings extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nV.setText("LOL!!!!!!!!!!!");
                 finish();
 
 
