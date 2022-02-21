@@ -8,8 +8,9 @@
     <string name="app_name">Web Novel Translation</string>
     <string name="menu_home">Home</string>
 
-    <string name="text_settings">Settings</string>
-    <string name="text_dev_help">Inquiry</string>
+    <string name="text_settings" translatable="false">Settings</string>
+    <string name="text_userdict">UserDictionary</string>
+    <string name="text_dev_help">Help</string>
 
     <string name="text_textInputLayout">Please enter the novel address here.</string>
     <string name="text_button">Loading novels</string>
@@ -18,7 +19,16 @@
     <string name="text_novelNxtBtn">Next &gt;&gt;</string>
 
     <string name="text_loadingBox">Loading a novel.. Please wait a second.</string>
-    <string name="text_novelView">You can load a novel by pressing the top left button..  [Support website] Become a novelist (https://syosetu.com/) Hameln (https://syosetu.org/) Kakuyomu (https://kakuyomu.jp/) Alphapolis (https://www.alphapolis.co.jp/) Pixiv (https://www.pixiv.net/) Novelist (https://novelist.jp/) Estar (https://estar.jp/)</string>
+    <string name="text_novelView">You can load a novel by pressing the top left button..\n\n[Support website]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
 
+    <string name="text_btn_edit">Edit</string>
+    <string name="text_btn_delete">Delete</string>
+
+    <string name="text_edit_ja_name">Please enter a Japanese name.</string>
+    <string name="text_edit_ko_name">Please enter a English name.</string>
+    <string name="text_btn_save">Add</string>
+    <string name="text_btn_import_dict">Import Name Dictionary</string>
+    <string name="text_btn_apply_dict">Apply Dictionary</string>
+    <string name="text_edit_search">Search</string>
 
 </resources>

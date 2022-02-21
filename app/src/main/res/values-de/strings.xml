@@ -3,7 +3,7 @@
     <string name="app_name">Web Novel Übersetzung</string>
     <string name="menu_home">Home</string>
 
-    <string name="text_settings">Einstellungen</string>
+    <string name="text_userdict">Benutzer-Wörterbuch</string>
     <string name="text_dev_help">Untersuchung</string>
 
     <string name="text_textInputLayout">Bitte geben Sie hier die Noveladresse ein.</string>
@@ -14,5 +14,16 @@
 
     <string name="text_loadingBox">Laden Sie einen Roman.. Bitte warten Sie ein.</string>
     <string name="text_novelView">Sie können einen Roman laden, indem Sie die obere linke Taste drücken..\n\n[Support website]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+
+    <string name="text_btn_edit">Bearbeiten</string>
+    <string name="text_btn_delete">Löschen</string>
+
+    <string name="text_edit_ja_name">Bitte geben Sie einen japanischen Namen ein.</string>
+    <string name="text_edit_ko_name">Bitte geben Sie einen englischen Namen ein.</string>
+    <string name="text_btn_save">Addieren</string>
+    <string name="text_btn_import_dict">Addieren Namenswörterbuch importieren</string>
+    <string name="text_btn_apply_dict">Wörterbuch anwenden</string>
+    <string name="text_edit_search">Suche</string>
 
 </resources>

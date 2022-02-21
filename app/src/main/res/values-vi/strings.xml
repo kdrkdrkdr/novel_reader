@@ -3,7 +3,7 @@
     <string name="app_name">Bản dịch trên mạng</string>
     <string name="menu_home">Nhà</string>
 
-    <string name="text_settings">Sự xác lại khái</string>
+    <string name="text_userdict">Từ điển tên</string>
     <string name="text_dev_help">Cuộc điều tra</string>
 
     <string name="text_textInputLayout">Vui lòng nhập địa chỉ mới vào đây.</string>
@@ -14,5 +14,16 @@
 
     <string name="text_loadingBox">Đang tải một cuốn tiểu thuyết.. Các bạn chờ chút nhé.</string>
     <string name="text_novelView">Bạn có thể tải một cuốn tiểu thuyết bằng cách ấn nút trên trái..\n\n[Trang web hỗ trợ]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+
+    <string name="text_btn_edit">Biên tập</string>
+    <string name="text_btn_delete">Loật</string>
+
+    <string name="text_edit_ja_name">Vui lòng nhập tên tiếng Nhật.</string>
+    <string name="text_edit_ko_name">Vui lòng nhập tên tiếng Anh.</string>
+    <string name="text_btn_save">Thêm vào</string>
+    <string name="text_btn_import_dict">Từ điển nhập khẩu tên</string>
+    <string name="text_btn_apply_dict">Áp dụng từ điển</string>
+    <string name="text_edit_search">Tìm kiếm</string>
 
 </resources>

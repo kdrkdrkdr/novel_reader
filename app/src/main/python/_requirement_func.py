@@ -1,6 +1,9 @@
 #-*- coding:utf-8 -*-
 
 
+import shutil
+import jaconv
+from url_normalize import url_normalize
 from bs4 import BeautifulSoup
 import re
 import requests
@@ -11,14 +14,143 @@ import asyncio
 from re import sub
 from papagopy.papagopy import Papagopy
 from papagopy import constants
-from url_normalize import url_normalize
 from pixivpy3 import *
 
+from janome.tokenizer import Tokenizer
+from jaconv import alphabet2kata
+from _requirement_func import *
+import json
+import ko_pron
 
+import sqlite3
 
 
 findJpn = re.compile('[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]')
 p = Papagopy()
+
+
+temp_user_dict_location = "/data/data/com.kdr.novel_reader/databases/temp_userdict.csv"
+user_dict_db = "/data/data/com.kdr.novel_reader/databases/userdict.db"
+
+
+
+
+def WriteFile(text: str, filename: str):
+    f = codecs.open(filename, mode='w', encoding='utf-8')
+    f.write(u'{}'.format(text))
+    f.close()
+
+
+def ReadFile(filename: str):
+    f = codecs.open(filename, mode='r', encoding='utf-8')
+    return f.read()
+
+
+
+
+# 영어도 지원됨.
+def ko2kata(string):
+    r = ko_pron.romanise(string, 'rr')
+    r = ReplacingText(r, {
+        'si':'shi',
+        'cheu':'tsu',
+        'seu':'su',
+        'ja':'za',
+        'jeu':'zu',
+        'je':'ze',
+        'jo':'zo',
+        '-':'',
+    }) # 영어 표기에 잘못된 표기 커버 침.
+    a = alphabet2kata(r)
+    # print(f"{string}->{r}->{a}")
+    return a
+
+
+
+def GetDictionary():
+    conn = sqlite3.connect(user_dict_db)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM user_dict")
+    data = cur.fetchall()
+
+    user_dict = {}
+    for d in data:
+        try:
+            print(d)
+            user_dict[d[1]] = d[2]
+        except: continue
+    conn.close()
+    return user_dict
+
+
+def RestoreCSV():
+    user_dict = GetDictionary()
+    WriteFile("\n".join([f"{k},名詞,{ko2kata(v)}" for k, v in user_dict.items() if len(k)>1]), temp_user_dict_location)
+
+
+
+
+
+def LoadNewDatabase(dict_string):
+    conn = sqlite3.connect(user_dict_db)
+    cur = conn.cursor()
+    
+    cur.execute('DELETE FROM user_dict;')
+    conn.commit()
+
+    r = dict_string.split('\n')
+
+    count = 0
+    for i in r:
+        a = i.replace(' ', '')
+        if not a.startswith('//'):
+            b = a.split(',')
+            try:
+                ja_name = b[0]
+                ko_name = b[1]
+                cur.execute(f"insert into user_dict values ('{count}', '{ja_name}', '{ko_name}')")
+                count += 1
+                conn.commit()
+            except IndexError:
+                print("IDXERROR")
+
+    
+    conn.close()
+    RestoreCSV()
+    
+
+
+
+# 얘만 잘 되고, 파파고가 뜻대로 읽어주기만 하면 상관없는데..
+def TextPreProcessing(text: str):
+
+    user_dict = GetDictionary()
+    custom_noun_list = set(user_dict.keys())
+
+    if len(user_dict) == 0:
+        return text
+
+    t = Tokenizer(udic=temp_user_dict_location, udic_type="simpledic", mmap=False)
+
+    # TODO: 연속된 사전 단어의 경우 가타카나가 겹쳐서 띄어쓰기 안 되는 부분 있을 수 있으므로 처리해야함.
+    ifCon = False
+
+    content = ''
+    for token in t.tokenize(text):
+        base = str(token).split('\t')
+
+        word = base[0]
+        setting = base[1].split(',')
+
+        if (word in custom_noun_list) and ('名詞' in setting):
+            content += f"{ko2kata(user_dict[word])}"
+            continue
+
+        content += word
+
+    return content
+
+
 
 
 
@@ -26,14 +158,21 @@ def translate_content(content: str, lang_code: str):
     if lang_code == 'ja':
         return content
 
-    elif 'zh' in lang_code:
-        return p.translate(content, 'zh-CN')
-
-    elif not lang_code in constants.codes['all']:
-        return p.translate(content, 'en')
-
     else:
-        return p.translate(content, lang_code)
+        content = TextPreProcessing(content)
+
+        if 'zh' in lang_code:
+            return p.translate(content, 'zh-CN')
+
+        elif not lang_code in constants.codes['all']:
+            return p.translate(content, 'en')
+
+        else:
+            return p.translate(content, lang_code)
+
+
+
+
 
 
 
@@ -73,19 +212,14 @@ def PrettyJson(msg):
     return json.dumps(msg, indent=4, sort_keys=True, ensure_ascii=False)
 
 
-def WriteFile(text: str, filename: str):
-    f = codecs.open(filename, mode='w', encoding='utf-8')
-    f.write(u'{}'.format(text))
-    f.close()
 
 
 
 
 def ReplacingText(text:str, repl_dict: dict):
     for key, value in repl_dict.items():
-        replaced_text = str(text).replace(key, value)
-
-    return replaced_text
+        text = str(text).replace(key, value)
+    return text
 
 
 

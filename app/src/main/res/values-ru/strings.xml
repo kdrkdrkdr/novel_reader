@@ -3,7 +3,7 @@
     <string name="app_name">Перевод новшеств в Интернете</string>
     <string name="menu_home">Главная</string>
 
-    <string name="text_settings">Настройки</string>
+    <string name="text_userdict">Название словаря</string>
     <string name="text_dev_help">Следствие</string>
 
     <string name="text_textInputLayout">Пожалуйста, введите адрес романа здесь.</string>
@@ -14,5 +14,16 @@
 
     <string name="text_loadingBox">Загрузка романа.. Пожалуйста, подождите секунду.</string>
     <string name="text_novelView">Вы можете загрузить роман, нажав левую верхнюю кнопку..\n\n[Поддержка сайта]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+
+    <string name="text_btn_edit">Редактировать</string>
+    <string name="text_btn_delete">Удалить</string>
+
+    <string name="text_edit_ja_name">Пожалуйста, введите японское имя.</string>
+    <string name="text_edit_ko_name">Пожалуйста, введите имя на английском языке.</string>
+    <string name="text_btn_save">Добавить</string>
+    <string name="text_btn_import_dict">Импорт словаря имени</string>
+    <string name="text_btn_apply_dict">Применение словаря</string>
+    <string name="text_edit_search">Поиск</string>
 
 </resources>

@@ -3,7 +3,7 @@
     <string name="app_name">Traduction d\'un roman Web</string>
     <string name="menu_home">Accueil</string>
 
-    <string name="text_settings">Réglages</string>
+    <string name="text_userdict">Dictionnaire des noms</string>
     <string name="text_dev_help">Enquête</string>
 
     <string name="text_textInputLayout">Veuillez entrer l\'adresse nouvelle ici.</string>
@@ -15,4 +15,13 @@
     <string name="text_loadingBox">Chargement d\'un roman.. S\'il vous plaît, s\'il vous plaît.</string>
     <string name="text_novelView">Vous pouvez charger un roman en appuyant sur le bouton en haut à gauche..\n\n[Site Web d\'appui\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
 
+    <string name="text_btn_edit">Éditer</string>
+    <string name="text_btn_delete">Supprimer</string>
+
+    <string name="text_edit_ja_name">Veuillez inscrire un nom japonais.</string>
+    <string name="text_edit_ko_name">Veuillez entrer un nom anglais.</string>
+    <string name="text_btn_save">Ajouter</string>
+    <string name="text_btn_import_dict">Dictionnaire des noms d\'importation</string>
+    <string name="text_btn_apply_dict">Application du dictionnaire</string>
+    <string name="text_edit_search">Recherche</string>
 </resources>

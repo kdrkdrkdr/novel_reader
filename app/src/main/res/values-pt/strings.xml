@@ -3,7 +3,7 @@
     <string name="app_name">Tradução de novidades na Web</string>
     <string name="menu_home">A casa</string>
 
-    <string name="text_settings">Settings</string>
+    <string name="text_userdict">Dicionário de Nome</string>
     <string name="text_dev_help">Inquérito</string>
 
     <string name="text_textInputLayout">Entre a endereço da nova edição.</string>
@@ -14,5 +14,15 @@
 
     <string name="text_loadingBox">Carga de uma novela.. Por favor espere um segundo.</string>
     <string name="text_novelView">Pode carregar um romance pressionando o botão superior esquerdo..\n\n[Sítio web de apoio]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+    <string name="text_btn_edit">Edições</string>
+    <string name="text_btn_delete">Retire a embalagem</string>
+
+    <string name="text_edit_ja_name">Por favor entre um nome japonês.</string>
+    <string name="text_edit_ko_name">Por favor entre um nome inglês.</string>
+    <string name="text_btn_save">Adicionar</string>
+    <string name="text_btn_import_dict">Importação de dicionário de nomes</string>
+    <string name="text_btn_apply_dict">Aplicar o dicionário</string>
+    <string name="text_edit_search">Investigação</string>
 
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">웹 소설 번역</string>
     <string name="menu_home">Home</string>
-    <string name="text_settings">설정</string>
+    <string name="text_userdict">이름 사전</string>
     <string name="text_dev_help">문의하기</string>
     <string name="text_textInputLayout">여기에 소설 주소를 입력해주세요.</string>
     <string name="text_button">소설 불러오기</string>
@@ -10,4 +10,16 @@
     <string name="text_novelPrevBtn">&lt;&lt; 이전 화</string>
     <string name="text_novelNxtBtn">다음 화 &gt;&gt;</string>
     <string name="text_loadingBox">소설을 불러오는 중.. 잠시만 기다려주세요.</string>
+
+    <string name="text_btn_edit">수정</string>
+    <string name="text_btn_delete">삭제</string>
+
+    <string name="text_edit_ja_name">일본어 이름을 입력해주세요.</string>
+    <string name="text_edit_ko_name">한국어 이름을 입력해주세요.</string>
+    <string name="text_btn_save">추가</string>
+    <string name="text_btn_import_dict">이름 사전 파일 불러오기</string>
+    <string name="text_btn_apply_dict">적용하기 (추가/삭제/수정) 하고 반드시 눌러야함</string>
+    <string name="text_edit_search">검색</string>
+
+
 </resources>

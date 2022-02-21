@@ -29,8 +29,6 @@ class NovelReader(object):
         self.novel_url = url_normalize(novel_url)
         self.target_lang_code = target_lang_code
         
-
-        
         try:
         
             if 'syosetu.org' in self.novel_url:

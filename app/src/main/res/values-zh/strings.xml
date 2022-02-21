@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">网络小说翻译</string>
     <string name="menu_home">家</string>
-    <string name="text_settings">设置</string>
+    <string name="text_userdict">姓名词典</string>
     <string name="text_dev_help">咨询</string>
     <string name="text_textInputLayout">请在这里输入小说地址。</string>
     <string name="text_button">装入小说</string>
@@ -10,4 +10,14 @@
     <string name="text_novelPrevBtn">&lt;&lt; 前一段插曲</string>
     <string name="text_novelNxtBtn">下一个小插曲 &gt;&gt;</string>
     <string name="text_loadingBox">正在叫小说.. 请稍等。</string>
+
+    <string name="text_btn_edit">编辑</string>
+    <string name="text_btn_delete">删除</string>
+
+    <string name="text_edit_ja_name">请输入日本名字。</string>
+    <string name="text_edit_ko_name">请输入英文名。</string>
+    <string name="text_btn_save">添加</string>
+    <string name="text_btn_import_dict">导入名称字典</string>
+    <string name="text_btn_apply_dict">应用词典</string>
+    <string name="text_edit_search">搜索</string>
 </resources>

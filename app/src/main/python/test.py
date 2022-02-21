@@ -1,53 +1,82 @@
+from janome.tokenizer import Tokenizer
 from _requirement_func import *
-from pprint import pprint
+import papagopy
 
 
+# t = """
+# 아 이 우 에 오
+# 카 키 쿠 케 코
+# 사 시 스 세 소
+# 타 치 츠 테 토
+# 나 니 누 네 노
+# 하 히 후 헤 호
+# 마 미 무 메 모
+# 야    유    요
+# 라 리 루 레 로
+# 와         오
+
+# 가 기 구 게 고
+# 자 지 즈 제 조
+# 다       데 도
+# 바 비 부 베 보
+# 파 피 푸 페 포
+
+# """.split('\n')
+# t = "스이세이"
+# ko2kata(t)
 
 
+t=p.translate("hello", 'ko')
+print(t)
+# text = ReadFile('ex_novel.txt')
 
 
+# user_dict = {
+#         "白金":"시로카네",
+#         "燐子":"린코",
+#         "有咲":"아리사",
+#         "彩":"아야",
+#         "比企谷":"히키가야",
+#         "八幡":"하치만",
+#         "陽乃":"하루노",
+#         "氷川":"히카와",
+#         "紗夜":"사요",
+#         "小町":"코마치",
+#         "弦巻":"츠루마키",
+#         "こころ":"코코로",
+#         "城廻":"시로메구리",
+#         "めぐり":"메구리",
+#         "雪ノ下":"유키노시타",
+#         "結衣":"유이"
+#     }
 
-# def refresh_pixiv_token():
-#     response = requests.post(
-#         "https://oauth.secure.pixiv.net/auth/token",
-#         data={
-#             "client_id": "MOBrBDS8blbauoSck0ZfDbtuzpyT",
-#             "client_secret": "lsACyCD94FhDUtGTXi3QzcFE2uU1hqtDaKeqrdwj",
-#             "grant_type": "refresh_token",
-#             "include_policy": "true",
-#             "refresh_token": "dm47_E5U48t53ShUwvZc26ZLh76SJ6bfdE4hhhcRCgA",
-#         },
-#         headers={"User-Agent": "PixivAndroidApp/5.0.234 (Android 11; Pixel 5)"},
-#     )
-#     data = response.json()
 
-#     try:
-#         access_token = data["access_token"]
-#         refresh_token = data["refresh_token"]
+# temp_user_dict_location = "temp_user_dict.csv"
+# WriteFile("\n".join([f"{k},名詞,{ko2kata(v)}" for k, v in user_dict.items() if len(k)>1]), temp_user_dict_location)
 
-#         return access_token
+# t = Tokenizer(udic=temp_user_dict_location, udic_type="simpledic")
 
-#     except KeyError:
-#         print("error:")
-#         exit(1)
-    
+# ifCon = False
+# content = ''
 
-# pixiv_api = AppPixivAPI()
-# pixiv_api.set_auth(refresh_pixiv_token())
+# for token in t.tokenize(text):
+#     base = str(token).split('\t')
 
-# episode_URLs = []
-# qs = {'series_id': str(1082816)}
-# while qs:
-#     json_result = pixiv_api.novel_series(**qs)
-#     episode_URLs.extend([novel.title for novel in json_result.novels])
-#     qs = pixiv_api.parse_qs(json_result.next_url)
+#     word = base[0]
+#     setting = base[1].split(',')
 
-# c = len(episode_URLs)
-# print(c)
+#     if (word in list(user_dict.keys())) and ('名詞' in setting):
+#         if ifCon:
+#             content += " "
+#         content += f"{ko2kata(user_dict[word])}"
+#         ifCon = True
+#         continue
 
-# t='\n'.join(episode_URLs)
+#     content += word
+#     ifCon = False
 
-# b = p.translate(t, 'ko')
 
-# print(b, len(b.split('\n')))
+# WriteFile(content, "pre.txt")
 
+# trans = p.translate(content, 'ko')
+# WriteFile(trans, 'transed.txt')

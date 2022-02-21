@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">ウェブ小説翻訳</string>
     <string name="menu_home">ホーム</string>
-    <string name="text_settings">設定</string>
+    <string name="text_userdict">名前辞書</string>
     <string name="text_dev_help">問合せ</string>
     <string name="text_textInputLayout">ここに小説住所を入力してください。</string>
     <string name="text_button">小説読み込み</string>
@@ -10,4 +10,14 @@
     <string name="text_novelPrevBtn">&lt;&lt; 前へ</string>
     <string name="text_novelNxtBtn">次へ &gt;&gt;</string>
     <string name="text_loadingBox">小説を読み込み中… 少々お待ちください</string>
+
+    <string name="text_btn_edit">編集</string>
+    <string name="text_btn_delete">削除</string>
+
+    <string name="text_edit_ja_name">日本語名を入力してください。</string>
+    <string name="text_edit_ko_name">英語名を入力してください。</string>
+    <string name="text_btn_save">追加</string>
+    <string name="text_btn_import_dict">インポート名辞書</string>
+    <string name="text_btn_apply_dict">辞書の適用</string>
+    <string name="text_edit_search">検索</string>
 </resources>

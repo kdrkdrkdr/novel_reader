@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">वेब उपन्यास अनुवाद</string>
     <string name="menu_home">घर</string>
-    <string name="text_settings">स्थापना</string>
+    <string name="text_userdict">नाम शब्दकोश</string>
     <string name="text_dev_help">संपर्क करें</string>
     <string name="text_textInputLayout">कृपया अपना उपन्यास पता यहां दर्ज करें।</string>
     <string name="text_button">लोड उपन्यास</string>
@@ -10,4 +10,14 @@
     <string name="text_novelPrevBtn">&lt;&lt; पिछला संस्करण</string>
     <string name="text_novelNxtBtn">अगले प्रकरण &gt;&gt;</string>
     <string name="text_loadingBox">उपन्यास लोड हो रहा है.. कृपया प्रतीक्षा करें.</string>
+
+    <string name="text_btn_edit">संपादन</string>
+    <string name="text_btn_delete">मिटाएँ </string>
+
+    <string name="text_edit_ja_name">कृपया जापानी नाम भरें.</string>
+    <string name="text_edit_ko_name">कृपया अंग्रेज़ी नाम भरें.</string>
+    <string name="text_btn_save">जोड़ें</string>
+    <string name="text_btn_import_dict">नाम शब्दकोश आयात करें</string>
+    <string name="text_btn_apply_dict">शब्दकोष लागू करें </string>
+    <string name="text_edit_search">ढूंढें</string>
 </resources>

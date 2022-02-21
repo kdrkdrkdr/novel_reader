@@ -3,7 +3,7 @@
     <string name="app_name">การแปลนิยายเว็บนิยาย</string>
     <string name="menu_home">หน้าหลัก</string>
 
-    <string name="text_settings">ตั้งค่า</string>
+    <string name="text_userdict">พจนานุกรมชื่อ</string>
     <string name="text_dev_help">การสอบสวน</string>
 
     <string name="text_textInputLayout">โปรดป้อนที่อยู่นิยายที่นี่</string>
@@ -14,5 +14,16 @@
 
     <string name="text_loadingBox">กำลังโหลดนิยาย.. กรุณารอสักครู่.</string>
     <string name="text_novelView">คุณสามารถโหลดนิยายได้โดยการกดปุ่มด้านบนซ้าย..\n\n[เว็บไซต์สนับสนุน]\nBecome a novelist (https://syosetu.com/)\nHameln (https://syosetu.org/)\nKakuyomu (https://kakuyomu.jp/)\nAlphapolis (https://www.alphapolis.co.jp/)\nPixiv (https://www.pixiv.net/)\nNovelist (https://novelist.jp/)\nEstar (https://estar.jp/)</string>
+
+
+    <string name="text_btn_edit">แก้ไข</string>
+    <string name="text_btn_delete">ลบ</string>
+
+    <string name="text_edit_ja_name">โปรดป้อนชื่อภาษาญี่ปุ่น</string>
+    <string name="text_edit_ko_name">โปรดป้อนชื่อภาษาอังกฤษ</string>
+    <string name="text_btn_save">เพิ่ม</string>
+    <string name="text_btn_import_dict">นำเข้าพจนานุกรมชื่อ</string>
+    <string name="text_btn_apply_dict">ปรับใช้พจนานุกรม</string>
+    <string name="text_edit_search">ค้นหา</string>
 
 </resources>
