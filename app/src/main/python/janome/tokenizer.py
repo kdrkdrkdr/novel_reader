@@ -140,6 +140,8 @@ class Token(object):
         return f'{self.surface}\t' \
             f'{self.part_of_speech},{self.infl_type},{self.infl_form},{self.base_form},{self.reading},{self.phonetic}'
 
+        
+
 
 class Tokenizer(object):
     """
@@ -228,10 +230,12 @@ class Tokenizer(object):
             raise WakatiModeOnlyException
 
         chunk_size = min(len(text), Tokenizer.MAX_CHUNK_SIZE)
+        # print("chunk_size ", chunk_size)
         lattice = Lattice(chunk_size, self.sys_dic)
         pos = 0
         while not self.__should_split(text, pos):
             encoded_partial_text = text[pos:pos + min(50, chunk_size - pos)].encode('utf-8')
+            
             # user dictionary
             if self.user_dic:
                 entries = self.user_dic.lookup(encoded_partial_text)
@@ -272,6 +276,8 @@ class Tokenizer(object):
                         lattice.add(Node(dummy_dict_entry, NodeType.UNKNOWN))
 
             pos += lattice.forward()
+
+
         lattice.end()
         min_cost_path = lattice.backward()
         assert isinstance(min_cost_path[0], BOS)

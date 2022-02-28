@@ -268,7 +268,7 @@ class Papagopy:
 
 
 
-		# 여기를 검사할 필요가 있다.
+
 		if returnRaw:
 			result = [
 				res['message']['result'] if 'message' in res else res 

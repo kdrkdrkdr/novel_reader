@@ -48,7 +48,9 @@ def ReadFile(filename: str):
 
 
 
-# 영어도 지원됨.
+
+# ン 처리를 해야함. 
+# https://namu.wiki/w/%E3%82%93 참고해서 고쳐야한다... 유키농!!
 def ko2kata(string):
     r = ko_pron.romanise(string, 'rr')
     r = ReplacingText(r, {
@@ -59,21 +61,27 @@ def ko2kata(string):
         'jeu':'zu',
         'je':'ze',
         'jo':'zo',
+        'nxtsu':'n',
         '-':'',
     }) # 영어 표기에 잘못된 표기 커버 침.
     a = alphabet2kata(r)
-    # print(f"{string}->{r}->{a}")
+    print(f"{string}->{r}->{a}")
     return a
 
 
 
 def GetDictionary():
-    conn = sqlite3.connect(user_dict_db)
+    user_dict = {}
+
+    try:
+        conn = sqlite3.connect(user_dict_db)
+    except sqlite3.OperationalError:
+        return {}
+
     cur = conn.cursor()
     cur.execute("SELECT * FROM user_dict")
     data = cur.fetchall()
-
-    user_dict = {}
+    
     for d in data:
         try:
             print(d)
@@ -92,7 +100,10 @@ def RestoreCSV():
 
 
 def LoadNewDatabase(dict_string):
-    conn = sqlite3.connect(user_dict_db)
+    try:
+        conn = sqlite3.connect(user_dict_db)
+    except sqlite3.OperationalError:
+        return
     cur = conn.cursor()
     
     cur.execute('DELETE FROM user_dict;')
@@ -148,7 +159,7 @@ def TextPreProcessing(text: str):
 
         content += word
 
-    return content
+    return content                   
 
 
 

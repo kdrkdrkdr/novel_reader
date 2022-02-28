@@ -387,6 +387,7 @@ public class User_Dictionary extends AppCompatActivity implements TextWatcher {
 
                 rq_func.callAttr("LoadNewDatabase", content);
                 initRecyclerView();
+                Toast.makeText(mContext, "이름 사전 적용 완료!", Toast.LENGTH_SHORT).show();
 
 
             } catch (Exception e) {
